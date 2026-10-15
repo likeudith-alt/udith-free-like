@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UDITH FREE LIKE - Free Fire Likes</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;-webkit-tap-highlight-color:transparent}
+body{background:#0a0a15;min-height:100vh;padding:20px 15px;color:#fff;overflow-x:hidden;position:relative}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.5;z-index:0;animation:float 15s infinite ease-in-out}
+.orb1{width:300px;height:300px;background:#ff6b00;top:-100px;left:-100px}
+.orb2{width:400px;height:400px;background:#e74c3c;bottom:-150px;right:-150px;animation-delay:-5s}
+.orb3{width:250px;height:250px;background:#ffcc00;top:40%;left:50%;animation-delay:-10s;opacity:.3}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-50px) scale(1.1)}66%{transform:translate(-50px,50px) scale(.9)}}
+.container{max-width:480px;margin:0 auto;position:relative;z-index:1}
+.header{text-align:center;margin-bottom:25px}
+.logo-badge{font-size:50px;display:inline-block;animation:bounce 2s infinite;filter:drop-shadow(0 0 20px #ff6b00)}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.main-title{font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#ff6b00,#ffcc00,#ff6b00);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 3s linear infinite;margin-top:10px}
+.main-title span{display:block;font-size:26px}
+@keyframes shine{to{background-position:200% center}}
+.tagline{font-size:12px;color:#888;margin-top:8px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,107,0,.3);border-radius:12px;padding:12px 8px}
+.stat-num{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:700;color:#ff6b00}
+.stat-lbl{font-size:10px;color:#888;margin-top:3px;text-transform:uppercase}
+.progress-wrap{margin-bottom:20px}
+.progress-bar{height:4px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.progress-fill{height:100%;width:33%;background:linear-gradient(90deg,#ff6b00,#ffcc00);border-radius:10px;transition:width .5s;box-shadow:0 0 10px #ff6b00}
+.progress-steps{display:flex;justify-content:space-between;margin-top:-12px;padding:0 10px}
+.pstep{width:22px;height:22px;border-radius:50%;background:#1a1a2e;border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#666;transition:all .3s}
+.pstep.active{background:linear-gradient(135deg,#ff6b00,#ffcc00);border-color:#ff6b00;color:#000;box-shadow:0 0 15px #ff6b00;transform:scale(1.15)}
+.card{background:rgba(20,20,35,.7);backdrop-filter:blur(20px);border:1px solid rgba(255,107,0,.2);border-radius:24px;padding:25px;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#ff6b00,#ffcc00,#ff6b00,transparent);animation:slideLine 3s linear infinite}
+@keyframes slideLine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.step{display:none}
+.step.active{display:block;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.step-title{font-size:20px;font-weight:700;margin-bottom:6px;text-align:center}
+.step-desc{font-size:13px;color:#999;text-align:center;margin-bottom:20px}
+.input-group{position:relative;margin-bottom:15px}
+.input-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none}
+.input-group input,.input-group select{width:100%;padding:15px 15px 15px 45px;border-radius:12px;border:2px solid rgba(255,255,255,.08);background:rgba(0,0,0,.4);color:#fff;font-size:15px;font-weight:500;outline:none;transition:all .3s;font-family:'Poppins',sans-serif}
+.input-group input:focus,.input-group select:focus{border-color:#ff6b00;box-shadow:0 0 20px rgba(255,107,0,.3)}
+.input-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b00' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 15px center;background-size:18px}
+.input-group select option{background:#1a1a2e;color:#fff}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:'Poppins',sans-serif;margin-bottom:10px;position:relative;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,#ff6b00,#ff9500);color:#fff;box-shadow:0 8px 25px rgba(255,107,0,.4)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(255,107,0,.6)}
+.btn-whatsapp{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;box-shadow:0 8px 25px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{transform:translateY(-3px)}
+.btn-icon{font-size:20px}
+.btn-text{flex:1;text-align:left}
+.check-icon{font-size:18px}
+.btn-verify{background:linear-gradient(135deg,#00b894,#00cec9);color:#fff;box-shadow:0 8px 25px rgba(0,184,148,.4)}
+.btn-verify:disabled{background:rgba(255,255,255,.1);color:#666;cursor:not-allowed;box-shadow:none}
+.btn-back{background:transparent;color:#888;border:2px solid rgba(255,255,255,.1);font-size:13px;padding:12px}
+.btn-back:hover{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,107,0,.5)}
+.btn-buy{background:linear-gradient(135deg,#e74c3c,#ff6b00,#ffcc00);background-size:200% auto;color:#fff;font-size:17px;padding:18px;font-weight:800;letter-spacing:1px;animation:buyPulse 2s infinite,buyShine 3s linear infinite;box-shadow:0 10px 30px rgba(255,107,0,.5);margin-top:15px;border:2px solid rgba(255,204,0,.5)}
+@keyframes buyPulse{0%,100%{box-shadow:0 10px 30px rgba(255,107,0,.5)}50%{box-shadow:0 10px 60px rgba(255,107,0,1)}}
+@keyframes buyShine{to{background-position:200% center}}
+.btn-buy:hover{transform:translateY(-3px) scale(1.03)}
+.btn-buy:disabled{animation:none;opacity:.7;cursor:not-allowed}
+.verify-info{background:rgba(255,204,0,.1);border:1px solid rgba(255,204,0,.3);border-radius:10px;padding:12px;margin:15px 0;text-align:center}
+.verify-info p{font-size:12px;color:#ffcc00}
+.user-info{background:rgba(255,107,0,.08);border:1px solid rgba(255,107,0,.2);border-radius:12px;padding:15px;margin-bottom:15px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:14px}
+.info-row:not(:last-child){border-bottom:1px solid rgba(255,255,255,.05)}
+.info-row span{color:#999}
+.info-row strong{color:#ff6b00;font-weight:700}
+.package-card{background:linear-gradient(135deg,rgba(255,107,0,.15),rgba(231,76,60,.1));border:2px solid rgba(255,107,0,.4);border-radius:18px;padding:25px;text-align:center;margin-bottom:15px;position:relative;overflow:hidden}
+.package-badge{position:absolute;top:12px;right:-30px;background:linear-gradient(90deg,#ffcc00,#ff6b00);color:#000;font-size:10px;font-weight:800;padding:4px 35px;transform:rotate(45deg);letter-spacing:1px;z-index:2}
+.package-icon{font-size:50px;margin-bottom:10px;filter:drop-shadow(0 0 20px #ff6b00);animation:bounce 1.5s infinite}
+.package-title{font-family:'Orbitron',sans-serif;font-size:26px;font-weight:900;color:#fff;letter-spacing:2px}
+.package-desc{font-size:12px;color:#ccc;margin-top:5px}
+.package-price{margin-top:15px}
+.price-tag{display:inline-block;background:linear-gradient(135deg,#ff6b00,#ffcc00);color:#000;font-size:12px;font-weight:800;padding:6px 18px;border-radius:20px;letter-spacing:2px;box-shadow:0 5px 20px rgba(255,107,0,.5)}
+.success-anim{text-align:center;margin-bottom:15px}
+.check-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#00b894,#00cec9);color:#fff;font-size:45px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(0,184,148,.6);animation:checkPop .6s ease}
+@keyframes checkPop{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+.order-details{background:rgba(0,184,148,.08);border:1px solid rgba(0,184,148,.3);border-radius:12px;padding:15px;margin-bottom:15px}
+.order-details .info-row strong{color:#00cec9}
+.player-card{background:linear-gradient(135deg,rgba(0,184,148,.15),rgba(0,206,201,.1));border:2px solid rgba(0,184,148,.5);border-radius:14px;padding:15px;margin-bottom:15px;animation:checkPop .5s ease}
+.player-card .info-row strong{color:#00cec9}
+.player-name{color:#fff!important;font-size:16px!important}
+.loading-box{text-align:center;padding:20px;display:none}
+.loading-box.active{display:block}
+.spinner{width:40px;height:40px;border:4px solid rgba(255,107,0,.2);border-top-color:#ff6b00;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.slot-box{background:linear-gradient(135deg,rgba(255,204,0,.12),rgba(255,107,0,.08));border:2px solid rgba(255,204,0,.4);border-radius:14px;padding:15px;margin-bottom:15px}
+.slot-box .info-row strong{color:#ffcc00}
+.slot-counter{font-family:'Orbitron',sans-serif;font-size:36px;font-weight:900;color:#ffcc00;text-align:center;margin:8px 0;text-shadow:0 0 20px rgba(255,204,0,.5)}
+.slot-counter span{font-size:18px;color:#888}
+.slot-bar{height:10px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin-top:10px}
+.slot-fill{height:100%;width:0%;background:linear-gradient(90deg,#e74c3c,#ffcc00,#00b894);border-radius:10px;transition:width .5s;box-shadow:0 0 10px rgba(255,107,0,.5)}
+.slot-dots{display:flex;justify-content:center;gap:4px;margin-top:10px;flex-wrap:wrap}
+.dot{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);transition:all .3s}
+.dot.filled{background:linear-gradient(135deg,#e74c3c,#ff6b00);border-color:#ff6b00;box-shadow:0 0 8px #ff6b00}
+.dot.current{background:linear-gradient(135deg,#00b894,#00cec9);border-color:#00b894;box-shadow:0 0 12px #00b894;transform:scale(1.2)}
+.blocked-box{background:linear-gradient(135deg,rgba(231,76,60,.2),rgba(0,0,0,.3));border:2px solid #e74c3c;border-radius:14px;padding:25px;text-align:center;margin-bottom:15px;animation:checkPop .5s ease}
+.blocked-box .blocked-icon{font-size:60px;margin-bottom:15px;display:block}
+.blocked-box h3{color:#e74c3c;font-size:20px;margin-bottom:10px;font-weight:800}
+.blocked-box p{color:#ccc;font-size:14px;line-height:1.6}
+.blocked-box .uid-text{color:#ffcc00;font-weight:700;font-family:'Orbitron',sans-serif;font-size:14px;margin-top:10px;display:block;word-break:break-all}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.feature{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:15px 8px;text-align:center;transition:all .3s}
+.feature:hover{background:rgba(255,107,0,.1);border-color:rgba(255,107,0,.3);transform:translateY(-3px)}
+.feature-icon{font-size:24px;margin-bottom:5px}
+.feature-title{font-size:12px;font-weight:700;color:#ff6b00}
+.feature-desc{font-size:10px;color:#888;margin-top:2px}
+footer{text-align:center;margin-top:25px;font-size:11px;color:#666;padding-bottom:20px}
+footer strong{color:#ff6b00}
+.footer-contact{margin-top:5px;color:#888}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+@media(max-width:400px){.main-title{font-size:26px}.main-title span{font-size:22px}.card{padding:20px}.package-title{font-size:22px}}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="container">
+  <div class="header">
+    <div class="logo-badge">🔥</div>
+    <h1 class="main-title">UDITH <span>FREE LIKE</span></h1>
+    <p class="tagline">Free Fire Likes • 15 Slots Only</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" id="statLikes">12,847</div><div class="stat-lbl">Likes Sent</div></div>
+      <div class="stat"><div class="stat-num" id="statUsers">3,421</div><div class="stat-lbl">Happy Users</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Support</div></div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-steps">
+      <span class="pstep active" data-step="1">1</span>
+      <span class="pstep" data-step="2">2</span>
+      <span class="pstep" data-step="3">3</span>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div id="step1" class="step active">
+      <h2 class="step-title">🎮 Enter Your UID</h2>
+      <p class="step-desc">Enter your Free Fire UID</p>
+      <div class="input-group">
+        <span class="input-icon">🆔</span>
+        <input type="text" id="uid" placeholder="Enter your Free Fire UID" maxlength="15" inputmode="numeric">
+      </div>
+      <div class="input-group">
+        <span class="input-icon">🌍</span>
+        <select id="server">
+          <option value="SG">🇸🇬 Singapore (SG)</option>
+          <option value="IND">🇮🇳 India (IND)</option>
+          <option value="BR">🇧🇷 Brazil (BR)</option>
+          <option value="US">🇺🇸 United States (US)</option>
+          <option value="ME">🇦🇪 Middle East (ME)</option>
+          <option value="ID">🇮🇩 Indonesia (ID)</option>
+        </select>
+      </div>
+      <button onclick="goToStep2()" class="btn btn-primary" id="nextBtn">Continue ➡️</button>
+      <div class="loading-box" id="loadingBox">
+        <div class="spinner"></div>
+        <p style="font-size:13px;color:#ff6b00">Checking player info...</p>
+      </div>
+    </div>
+
+    <div id="step2" class="step">
+      <h2 class="step-title">✅ Verify WhatsApp</h2>
+      <p class="step-desc">Join both Group and Channel</p>
+      <div class="player-card" id="playerCard">
+        <div class="info-row"><span>🎮 Player</span><strong id="playerName" class="player-name"></strong></div>
+        <div class="info-row"><span>🆔 UID</span><strong id="playerUid"></strong></div>
+        <div class="info-row"><span>🌍 Region</span><strong id="playerRegion"></strong></div>
+      </div>
+      <a href="https://chat.whatsapp.com/D349XCigfvZDbyNlN0ID2g?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="btn btn-whatsapp" onclick="markJoined('group')" id="groupBtn">
+        <span class="btn-icon">📱</span><span class="btn-text">Join WhatsApp Group</span><span class="check-icon" id="groupCheck">⏳</span>
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb97V4a0gcfA9gxfPI1Y" target="_blank" class="btn btn-whatsapp" onclick="markJoined('channel')" id="channelBtn">
+        <span class="btn-icon">📢</span><span class="btn-text">Join WhatsApp Channel</span><span class="check-icon" id="channelCheck">⏳</span>
+      </a>
+      <div class="verify-info"><p>💡 Join both to enable verify button</p></div>
+      <button onclick="verifyUser()" class="btn btn-verify" id="verifyBtn" disabled>⏳ Join Both First</button>
+      <button onclick="goToStep1()" class="btn btn-back">⬅️ Back</button>
+    </div>
+
+    <div id="step3" class="step">
+      <h2 class="step-title">🔥 Order Likes</h2>
+      <div class="user-info">
+        <div class="info-row"><span>🎮 Player</span><strong id="displayName"></strong></div>
+        <div class="info-row"><span>🆔 UID</span><strong id="displayUid"></strong></div>
+        <div class="info-row"><span>🌍 Server</span><strong id="displayServer"></strong></div>
+      </div>
+      <div class="slot-box">
+        <div class="info-row"><span>📊 Slots Used</span><strong id="slotText">0 / 15</strong></div>
+        <div class="slot-counter"><span id="slotRemaining">15</span><span> left</span></div>
+        <p style="text-align:center;font-size:11px;color:#999;margin-top:5px">Remaining slots</p>
+        <div class="slot-bar"><div class="slot-fill" id="slotFill"></div></div>
+        <div class="slot-dots" id="slotDots"></div>
+      </div>
+      <div class="package-card">
+        <div class="package-badge">30 LIKES</div>
+        <div class="package-icon">🔥</div>
+        <div class="package-title">30 LIKES</div>
+        <div class="package-desc">Free Fire Likes</div>
+        <div class="package-price"><span class="price-tag">FREE</span></div>
+      </div>
+      <button onclick="orderLikes()" class="btn btn-buy" id="buyBtn">🔥 ORDER 30 LIKES</button>
+      <button onclick="goToStep2()" class="btn btn-back">⬅️ Back</button>
+    </div>
+
+    <div id="step4" class="step">
+      <div class="success-anim"><div class="check-circle">✓</div></div>
+      <h2 class="step-title">Order Confirmed! 🎉</h2>
+      <p class="step-desc">Your order has been sent</p>
+      <div class="order-details">
+        <div class="info-row"><span>🎮 Player</span><strong id="confirmName"></strong></div>
+        <div class="info-row"><span>🆔 UID</span><strong id="confirmUid"></strong></div>
+        <div class="info-row"><span>🌍 Server</span><strong id="confirmServer"></strong></div>
+        <div class="info-row"><span>📦 Package</span><strong>30 LIKES</strong></div>
+        <div class="info-row"><span>📊 Slot</span><strong id="confirmSlot"></strong></div>
+        <div class="info-row"><span>📞 Order ID</span><strong id="confirmOrderId"></strong></div>
+      </div>
+      <a id="whatsappContact" href="#" target="_blank" class="btn btn-whatsapp">
+        <span class="btn-icon">💬</span><span class="btn-text">Open WhatsApp</span>
+      </a>
+      <button onclick="goToStep1()" class="btn btn-back">🏠 Home</button>
+    </div>
+
+    <div id="step5" class="step">
+      <div class="blocked-box">
+        <span class="blocked-icon">🚫</span>
+        <h3 id="blockedTitle">Slots Full!</h3>
+        <p id="blockedMsg">All 15 slots are used. No more likes available.</p>
+        <span class="uid-text" id="blockedUid"></span>
+      </div>
+      <a href="https://wa.me/94710961494?text=Hi%2C%20I%20used%20UDITH%20FREE%20LIKE.%20Need%20help." target="_blank" class="btn btn-whatsapp">
+        <span class="btn-icon">💬</span><span class="btn-text">Contact Admin</span>
+      </a>
+      <button onclick="goToStep1()" class="btn btn-back">🏠 Home</button>
+    </div>
+
+  </div>
+
+  <div class="features">
+    <div class="feature"><div class="feature-icon">⚡</div><div class="feature-title">Instant</div><div class="feature-desc">Fast delivery</div></div>
+    <div class="feature"><div class="feature-icon">🔒</div><div class="feature-title">Secure</div><div class="feature-desc">100% safe</div></div>
+    <div class="feature"><div class="feature-icon">💯</div><div class="feature-title">Free</div><div class="feature-desc">15 slots only</div></div>
+  </div>
+
+  <footer>
+    <p>© 2026 <strong>UDITH FREE LIKE</strong> • All Rights Reserved</p>
+    <p class="footer-contact">📞 +94 71 096 1494</p>
+  </footer>
+</div>
+<script>
+// ===== Variables =====
+let userUid = '';
+let userServer = '';
+let userName = '';
+let joinedGroup = false;
+let joinedChannel = false;
+
+// ===== Config =====
+const OWNER_WHATSAPP = '94710961494';
+const MAX_SLOTS = 15;
+const STORAGE_KEY = 'udith_free_like_slots_v1';
+
+// ===== Storage =====
+function getUsedUids() {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function isUidUsed(uid) {
+  return getUsedUids().includes(String(uid));
+}
+
+function getUsedSlots() {
+  return getUsedUids().length;
+}
+
+function isSlotsFull() {
+  return getUsedSlots() >= MAX_SLOTS;
+}
+
+function addUid(uid) {
+  const used = getUsedUids();
+  if (!used.includes(String(uid))) {
+    used.push(String(uid));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(used));
+    } catch (e) {}
+  }
+  return used.length;
+}
+
+// ===== Slot UI =====
+function updateSlotUI() {
+  const used = getUsedSlots();
+  const remaining = MAX_SLOTS - used;
+  const percent = (used / MAX_SLOTS) * 100;
+
+  const slotText = document.getElementById('slotText');
+  const slotRemaining = document.getElementById('slotRemaining');
+  const slotFill = document.getElementById('slotFill');
+  const dots = document.getElementById('slotDots');
+  const btn = document.getElementById('buyBtn');
+
+  if (slotText) slotText.textContent = used + ' / ' + MAX_SLOTS;
+  if (slotRemaining) slotRemaining.textContent = remaining > 0 ? remaining : 0;
+  if (slotFill) slotFill.style.width = percent + '%';
+
+  if (dots) {
+    dots.innerHTML = '';
+    for (let i = 0; i < MAX_SLOTS; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      if (i < used) dot.classList.add('filled');
+      if (i === used && used < MAX_SLOTS) dot.classList.add('current');
+      dots.appendChild(dot);
+    }
+  }
+
+  if (btn) {
+    if (remaining <= 0) {
+      btn.disabled = true;
+      btn.textContent = '🚫 Slots Full (15/15)';
+      btn.style.animation = 'none';
+      btn.style.opacity = '0.6';
+    } else {
+      btn.disabled = false;
+      btn.textContent = '🔥 ORDER 30 LIKES (' + remaining + ' slots)';
+      btn.style.animation = '';
+      btn.style.opacity = '1';
+    }
+  }
+}
+
+// ===== Navigation =====
+function goToStep1() {
+  resetAll();
+  showStep('step1');
+  updateProgress(1);
+}
+
+function goToStep2() {
+  const uid = document.getElementById('uid').value.trim();
+  const server = document.getElementById('server').value;
+
+  if (!/^[0-9]{5,15}$/.test(uid)) {
+    shakeInput('uid');
+    alert('Please enter a valid numeric Free Fire UID!');
+    return;
+  }
+
+  if (isSlotsFull()) {
+    document.getElementById('blockedTitle').textContent = 'Slots Full!';
+    document.getElementById('blockedMsg').innerHTML =
+      'All <strong>15 slots</strong> are used. No more likes available.';
+    document.getElementById('blockedUid').textContent = '';
+    showStep('step5');
+    updateProgress(3);
+    return;
+  }
+
+  if (isUidUsed(uid)) {
+    document.getElementById('blockedTitle').textContent = 'Already Used!';
+    document.getElementById('blockedMsg').innerHTML =
+      'Each user can only get likes <strong>one time</strong>.';
+    document.getElementById('blockedUid').textContent = 'UID: ' + uid;
+    showStep('step5');
+    updateProgress(3);
+    return;
+  }
+
+  userUid = uid;
+  userServer = server;
+  userName = 'Player';
+
+  document.getElementById('playerName').textContent = userName;
+  document.getElementById('playerUid').textContent = uid;
+  document.getElementById('playerRegion').textContent = server;
+
+  showStep('step2');
+  updateProgress(2);
+}
+
+function verifyUser() {
+  if (!joinedGroup || !joinedChannel) {
+    alert('Please join both WhatsApp links first.');
+    return;
+  }
+
+  if (isUidUsed(userUid)) {
+    document.getElementById('blockedTitle').textContent = 'Already Used!';
+    document.getElementById('blockedMsg').innerHTML =
+      'Each user can only get likes <strong>one time</strong>.';
+    document.getElementById('blockedUid').textContent = 'UID: ' + userUid;
+    showStep('step5');
+    return;
+  }
+
+  document.getElementById('displayName').textContent = userName || 'Player';
+  document.getElementById('displayUid').textContent = userUid;
+  document.getElementById('displayServer').textContent = userServer;
+
+  updateSlotUI();
+  showStep('step3');
+  updateProgress(3);
+}
+
+// ===== ORDER LIKES =====
+async function orderLikes() {
+  const btn = document.getElementById('buyBtn');
+
+  if (btn.disabled) return;
+
+  if (!userUid || !userServer) {
+    alert('Please enter your Free Fire UID first!');
+    goToStep1();
+    return;
+  }
+
+  if (isSlotsFull()) {
+    document.getElementById('blockedTitle').textContent = 'Slots Full!';
+    document.getElementById('blockedMsg').innerHTML =
+      'All <strong>15 slots</strong> are used. No more likes available.';
+    document.getElementById('blockedUid').textContent = '';
+    showStep('step5');
+    return;
+  }
+
+  if (isUidUsed(userUid)) {
+    document.getElementById('blockedTitle').textContent = 'Already Used!';
+    document.getElementById('blockedMsg').innerHTML =
+      'Each user can only get likes <strong>one time</strong>.';
+    document.getElementById('blockedUid').textContent = 'UID: ' + userUid;
+    showStep('step5');
+    return;
+  }
+
+    btn.disabled = true;
+  btn.textContent = '⏳ Processing...';
+
+  // Mark UID as used
+  const usedCount = addUid(userUid);
+  const orderId = 'UDITH-' + Date.now();
+
+  // Fill confirm details
+  document.getElementById('confirmName').textContent = userName || 'Player';
+  document.getElementById('confirmUid').textContent = userUid;
+  document.getElementById('confirmServer').textContent = userServer;
+  document.getElementById('confirmSlot').textContent = usedCount + ' / ' + MAX_SLOTS;
+  document.getElementById('confirmOrderId').textContent = orderId;
+
+  // WhatsApp message
+  const message =
+    'Hi UDITH! I ordered Free Fire likes.\n\n' +
+    '🎮 Player: ' + userName + '\n' +
+    '🆔 UID: ' + userUid + '\n' +
+    '🌍 Server: ' + userServer + '\n' +
+    '📦 Package: 30 Likes\n' +
+    '📊 Slot: ' + usedCount + '/' + MAX_SLOTS + '\n' +
+    '📞 Order ID: ' + orderId;
+
+  const whatsappUrl = 'https://wa.me/' + OWNER_WHATSAPP +
+    '?text=' + encodeURIComponent(message);
+
+  document.getElementById('whatsappContact').href = whatsappUrl;
+
+  // Open WhatsApp
+  window.open(whatsappUrl, '_blank');
+
+  // Update slot UI
+  updateSlotUI();
+
+  // Show step 4
+  setTimeout(function() {
+    showStep('step4');
+    updateProgress(3);
+    btn.disabled = false;
+    btn.textContent = '🔥 ORDER 30 LIKES';
+  }, 500);
+}
+
+// ===== Helpers =====
+function resetAll() {
+  userUid = '';
+  userServer = '';
+  userName = '';
+  joinedGroup = false;
+  joinedChannel = false;
+
+  const uidInput = document.getElementById('uid');
+  if (uidInput) uidInput.value = '';
+
+  const gc = document.getElementById('groupCheck');
+  const cc = document.getElementById('channelCheck');
+  const gb = document.getElementById('groupBtn');
+  const cb = document.getElementById('channelBtn');
+  const vb = document.getElementById('verifyBtn');
+
+  if (gc) gc.textContent = '⏳';
+  if (cc) cc.textContent = '⏳';
+  if (gb) gb.style.background = '';
+  if (cb) cb.style.background = '';
+  if (vb) {
+    vb.disabled = true;
+    vb.textContent = '⏳ Join Both First';
+  }
+
+  updateSlotUI();
+}
+
+function markJoined(type) {
+  if (type === 'group') {
+    joinedGroup = true;
+    document.getElementById('groupCheck').textContent = '✅';
+    document.getElementById('groupBtn').style.background =
+      'linear-gradient(135deg,#128C7E,#075E54)';
+  }
+
+  if (type === 'channel') {
+    joinedChannel = true;
+    document.getElementById('channelCheck').textContent = '✅';
+    document.getElementById('channelBtn').style.background =
+      'linear-gradient(135deg,#128C7E,#075E54)';
+  }
+
+  const btn = document.getElementById('verifyBtn');
+  if (joinedGroup && joinedChannel) {
+    btn.disabled = false;
+    btn.textContent = '✅ Verify & Continue';
+  }
+}
+
+function shakeInput(id) {
+  const input = document.getElementById(id);
+  input.style.animation = 'shake .4s';
+  setTimeout(function() {
+    input.style.animation = '';
+  }, 400);
+}
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(function(step) {
+    step.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+
+  const card = document.querySelector('.card');
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function updateProgress(step) {
+  const fill = document.getElementById('progressFill');
+  const widths = { 1: '33%', 2: '66%', 3: '100%' };
+
+  if (fill) fill.style.width = widths[step] || '33%';
+
+  document.querySelectorAll('.pstep').forEach(function(element, index) {
+    element.classList.toggle('active', index < step);
+  });
+}
+
+// ===== Init =====
+document.addEventListener('DOMContentLoaded', function() {
+  updateSlotUI();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/like"
+  to = "/.netlify/functions/like"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/freelike.html"
+  status = 200
